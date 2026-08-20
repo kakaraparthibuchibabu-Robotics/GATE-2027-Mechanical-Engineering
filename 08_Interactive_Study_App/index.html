@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GATE ME 2027 Study Portal</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text-main); padding: 20px; line-height: 1.5; }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-title h1 { font-size: 1.5rem; font-weight: 700; color: #f8fafc; }
+    .header-title p { font-size: 0.9rem; color: #94a3b8; margin-top: 4px; }
+
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-header { margin-bottom: 12px; }
+    .card-header h2 { font-size: 1.2rem; color: var(--accent); margin-bottom: 4px; }
+    .card-header p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .card-body ul { list-style: none; margin: 12px 0; }
+    .card-body li { font-size: 0.9rem; margin-bottom: 8px; padding-left: 16px; position: relative; }
+    .card-body li::before { content: "•"; color: var(--accent); font-weight: bold; position: absolute; left: 0; }
+
+    .takeaway {
+      background: #eff6ff;
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.85rem;
+      color: #1e40af;
+      margin: 12px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      text-align: center;
+      background: var(--accent);
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn:hover { background: var(--accent-hover); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-title">
+      <h1>GATE ME 2027 Preparation Portal</h1>
+      <p>Target: IISc Bangalore & IITs • Mechanical Engineering Matrix</p>
+    </div>
+    <div class="badges">
+      <span class="badge">General Aptitude: 15M</span>
+      <span class="badge">Engg Mathematics: 13M</span>
+      <span class="badge">Core ME: 72M</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <!-- Section 1: Applied Mechanics & Design -->
+    <div class="card">
+      <div>
+        <div class="card-header">
+          <h2>1. Applied Mechanics & Design</h2>
+          <p>Engineering Mechanics, SOM, TOM, Vibrations & Machine Design</p>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>SOM:</strong> Stress-Strain, 2D/3D Mohr's Circle, Deflection & Euler Buckling</li>
+            <li><strong>TOM & Vibrations:</strong> Mechanism Inversions, Epicyclic Gears, SDOF Damping</li>
+            <li><strong>Machine Design:</strong> Fatigue Strength (S-N Curve), Bearings & Fasteners</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="takeaway">
+          <strong>💡 Exam Focus:</strong> Focus on 2-mark numericals for principal stresses, strain rosettes, and natural frequency derivation.
+        </div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Strength+of+Materials+SP+Harsha" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+      </div>
+    </div>
+
+    <!-- Section 2: Fluid Mechanics & Thermal Sciences -->
+    <div class="card">
+      <div>
+        <div class="card-header">
+          <h2>2. Fluid Mechanics & Thermal Sciences</h2>
+          <p>Fluids, Thermodynamics, Heat Transfer, Power Plants, IC Engines & RAC</p>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Fluid Mechanics:</strong> Bernoulli's Equation, Boundary Layer Thickness, Pipe Losses</li>
+            <li><strong>Thermodynamics:</strong> 1st/2nd Laws, Entropy, Rankine & Otto Cycles</li>
+            <li><strong>Heat Transfer:</strong> Conduction, Extended Surfaces (Fins), LMTD & NTU Methods</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="takeaway">
+          <strong>💡 Exam Focus:</strong> High score potential in Heat Exchangers (NTU method) and Thermodynamic cycle efficiencies.
+        </div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Fluid+Mechanics+SK+Som" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+      </div>
+    </div>
+
+    <!-- Section 3: Materials, Manufacturing & Industrial -->
+    <div class="card">
+      <div>
+        <div class="card-header">
+          <h2>3. Materials, Manufacturing & Industrial</h2>
+          <p>Engineering Materials, Production Processes, Metrology & Operations Research</p>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Manufacturing:</strong> Merchant's Force Circle, Solidification Time, CNC Programming</li>
+            <li><strong>Industrial Engg:</strong> LPP Simplex Method, EOQ Inventory Control, PERT/CPM</li>
+            <li><strong>Materials:</strong> Fe-C Phase Diagram, TTT Curves, Heat Treatment</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="takeaway">
+          <strong>💡 Exam Focus:</strong> Master Taylor's tool life equation, Merchant force relations, and PERT critical path calculations.
+        </div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Manufacturing+Processes+PK+Jain" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+      </div>
+    </div>
+
+    <!-- Section 4: Engineering Mathematics -->
+    <div class="card">
+      <div>
+        <div class="card-header">
+          <h2>4. Engineering Mathematics</h2>
+          <p>Linear Algebra, Calculus, Differential Equations, Probability & Numerical Methods</p>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Linear Algebra:</strong> Eigenvalues, Eigenvectors, System of Linear Equations</li>
+            <li><strong>Calculus:</strong> Maxima/Minima, Gradient, Divergence, Vector Integration</li>
+            <li><strong>Probability:</strong> Poisson, Normal, and Binomial Distributions</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="takeaway">
+          <strong>💡 Exam Focus:</strong> Guaranteed 13 marks—focus heavily on Matrix properties and Differential Equations.
+        </div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Engineering+Mathematics+Jitendra+Kumar" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
