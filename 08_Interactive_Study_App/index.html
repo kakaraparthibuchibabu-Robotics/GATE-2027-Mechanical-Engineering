@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GATE ME 2027 Preparation Hub</title>
+  <title>GATE ME 2027 Portal | Jaswanth Edition</title>
   <style>
     :root {
       --primary: #0f172a;
@@ -13,46 +13,41 @@
       --card-bg: #ffffff;
       --text-main: #1e293b;
       --text-muted: #64748b;
-      --border: #e2e8f0;
+      --border: #cbd5e1;
       --success: #16a34a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text-main); padding: 20px; line-height: 1.5; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text-main); padding: 16px; line-height: 1.5; }
 
     header {
       background: var(--primary);
       color: white;
-      padding: 24px;
+      padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
-    .header-title h1 { font-size: 1.5rem; font-weight: 700; color: #f8fafc; }
-    .header-title p { font-size: 0.9rem; color: #94a3b8; margin-top: 4px; }
+    .header-title h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; }
+    .header-title p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
 
-    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
     .badge {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 6px 12px;
+      padding: 4px 10px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: #38bdf8;
     }
 
-    /* Widgets Bar: Countdown & Pomodoro Timer */
+    /* Widgets Bar: Countdown & Focus Timer */
     .widgets-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
       margin-bottom: 20px;
     }
 
@@ -60,14 +55,13 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px;
+      padding: 16px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
 
-    .widget-card h3 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
-    .timer-display { font-size: 2rem; font-weight: 700; color: var(--accent); font-family: monospace; }
-    .timer-btn { background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 10px; }
+    .widget-card h3 { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .timer-display { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: monospace; }
+    .timer-btn { background: var(--accent); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 8px; font-size: 0.85rem; }
     .timer-btn:hover { background: var(--accent-hover); }
 
     /* Progress Tracker */
@@ -75,97 +69,90 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px;
+      padding: 16px;
       margin-bottom: 20px;
     }
 
-    .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .progress-bar-bg { background: var(--border); height: 12px; border-radius: 6px; overflow: hidden; }
+    .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.85rem; }
+    .progress-bar-bg { background: #e2e8f0; height: 10px; border-radius: 5px; overflow: hidden; }
     .progress-bar-fill { background: var(--success); height: 100%; width: 0%; transition: width 0.3s ease; }
 
-    /* Filter Controls */
-    .filter-bar {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+    /* Search & Filter Controls */
+    .controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .search-box {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
     }
 
+    .filter-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
     .filter-btn {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
       font-weight: 600;
+      white-space: nowrap;
       cursor: pointer;
       color: var(--text-muted);
     }
+    .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
 
-    .filter-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
+    /* Cards Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+      gap: 16px;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .card-header { margin-bottom: 12px; }
-    .card-header h2 { font-size: 1.2rem; color: var(--accent); margin-bottom: 4px; }
-    .card-header p { font-size: 0.85rem; color: var(--text-muted); }
+    .card-header h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 4px; }
+    .card-header p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
 
-    .card-body ul { list-style: none; margin: 12px 0; }
-    .card-body li { font-size: 0.9rem; margin-bottom: 8px; padding-left: 16px; position: relative; }
-    .card-body li::before { content: "•"; color: var(--accent); font-weight: bold; position: absolute; left: 0; }
+    .topic-list { list-style: none; margin-bottom: 12px; }
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+    .topic-item input { margin-top: 3px; cursor: pointer; }
 
     .takeaway {
       background: #eff6ff;
-      border-left: 4px solid var(--accent);
-      padding: 10px 12px;
+      border-left: 3px solid var(--accent);
+      padding: 8px 10px;
       border-radius: 0 6px 6px 0;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #1e40af;
-      margin: 12px 0;
-    }
-
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
+      margin: 10px 0;
     }
 
     .btn {
-      display: inline-block;
+      display: block;
       text-align: center;
       background: var(--accent);
       color: white;
-      padding: 10px 16px;
+      padding: 8px;
       text-decoration: none;
       border-radius: 6px;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-top: 8px;
-      width: 100%;
     }
-
     .btn:hover { background: var(--accent-hover); }
   </style>
 </head>
@@ -174,34 +161,32 @@
   <header>
     <div class="header-title">
       <h1>GATE ME 2027 Preparation Portal</h1>
-      <p>Target: IISc Bangalore & IITs • Mechanical Engineering Stream</p>
+      <p>Target: IISc & IITs • Mechanical Engineering Matrix</p>
     </div>
     <div class="badges">
-      <span class="badge">General Aptitude: 15M</span>
-      <span class="badge">Engg Mathematics: 13M</span>
+      <span class="badge">Aptitude: 15M</span>
+      <span class="badge">Maths: 13M</span>
       <span class="badge">Core ME: 72M</span>
     </div>
   </header>
 
-  <!-- Widgets: Countdown & Focus Timer -->
+  <!-- Widgets Bar -->
   <div class="widgets-container">
     <div class="widget-card">
       <h3>⏳ GATE 2027 COUNTDOWN</h3>
       <div id="countdown" class="timer-display">000d 00h 00m</div>
-      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Target: Feb 2027 Exam</p>
     </div>
-
     <div class="widget-card">
-      <h3>⏱️ FOCUS POMODORO TIMER</h3>
+      <h3>⏱️ POMODORO SPRINT TIMER</h3>
       <div id="pomodoro" class="timer-display">25:00</div>
       <button id="timer-control" class="timer-btn" onclick="toggleTimer()">Start Sprint</button>
     </div>
   </div>
 
-  <!-- Progress Tracker -->
+  <!-- Syllabus Progress Tracker -->
   <div class="progress-section">
     <div class="progress-header">
-      <strong style="font-size: 0.9rem;">Syllabus Mastery Progress</strong>
+      <strong>Syllabus Completion Progress</strong>
       <span id="progress-percent" style="font-weight: 700; color: var(--success);">0% Completed</span>
     </div>
     <div class="progress-bar-bg">
@@ -209,122 +194,136 @@
     </div>
   </div>
 
-  <!-- Filter Bar -->
-  <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterCards('all', this)">All Subjects</button>
-    <button class="filter-btn" onclick="filterCards('design', this)">Design & Mechanics</button>
-    <button class="filter-btn" onclick="filterCards('thermal', this)">Thermal & Fluids</button>
-    <button class="filter-btn" onclick="filterCards('manufacturing', this)">Manufacturing & IE</button>
-    <button class="filter-btn" onclick="filterCards('maths', this)">Engineering Maths</button>
+  <!-- Search & Category Filters -->
+  <div class="controls">
+    <input type="text" id="search-input" class="search-box" placeholder="🔍 Search topics (e.g., Mohr Circle, Entropy, Taylor...)" onkeyup="filterTopics()">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+      <button class="filter-btn" onclick="filterCategory('mechanics', this)">Mechanics & SOM</button>
+      <button class="filter-btn" onclick="filterCategory('design', this)">TOM & Design</button>
+      <button class="filter-btn" onclick="filterCategory('fluids', this)">Fluids & Thermal</button>
+      <button class="filter-btn" onclick="filterCategory('prod', this)">Manufacturing & IE</button>
+      <button class="filter-btn" onclick="filterCategory('maths', this)">Maths</button>
+    </div>
   </div>
 
-  <!-- Cards Grid -->
+  <!-- Subject Checklist Cards -->
   <main class="grid">
 
-    <div class="card" data-category="design">
+    <!-- 1. Engineering Mechanics & SOM -->
+    <div class="card" data-category="mechanics">
       <div>
         <div class="card-header">
-          <h2>1. Applied Mechanics & Design</h2>
-          <p>Engineering Mechanics, SOM, TOM, Vibrations & Machine Design</p>
+          <h2>1. Mechanics & Strength of Materials</h2>
+          <p>Applied Mechanics & Solid Mechanics</p>
         </div>
-        <div class="card-body">
-          <ul>
-            <li><strong>SOM:</strong> Stress-Strain, 2D/3D Mohr's Circle, Deflection & Euler Buckling</li>
-            <li><strong>TOM & Vibrations:</strong> Mechanism Inversions, Epicyclic Gears, SDOF Damping</li>
-            <li><strong>Machine Design:</strong> Fatigue Strength (S-N Curve), Bearings & Fasteners</li>
-          </ul>
-        </div>
+        <ul class="topic-list">
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Free Body Diagrams & Trusses</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Stress, Strain & Elastic Constants</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> 2D & 3D Mohr's Circle (Principal Stresses)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Shear Force & Bending Moment Diagrams</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Torsion of Shafts & Deflection of Beams</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Euler Buckling Columns & Thin Cylinders</li>
+        </ul>
       </div>
       <div>
-        <div class="takeaway">
-          <strong>💡 Exam Focus:</strong> Focus on 2-mark numericals for principal stresses, strain rosettes, and natural frequency derivation.
-        </div>
-        <div class="checkbox-container">
-          <input type="checkbox" class="topic-check" onchange="updateProgress()"> Mark Section Complete
-        </div>
+        <div class="takeaway">💡 <strong>Focus:</strong> Master Mohr's circle numericals and beam deflection formulas.</div>
         <a href="https://www.youtube.com/results?search_query=NPTEL+Strength+of+Materials+SP+Harsha" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
       </div>
     </div>
 
-    <div class="card" data-category="thermal">
+    <!-- 2. TOM & Machine Design -->
+    <div class="card" data-category="design">
       <div>
         <div class="card-header">
-          <h2>2. Fluid Mechanics & Thermal Sciences</h2>
-          <p>Fluids, Thermodynamics, Heat Transfer, Power Plants, IC Engines & RAC</p>
+          <h2>2. TOM & Machine Design</h2>
+          <p>Kinematics, Dynamics & Component Design</p>
         </div>
-        <div class="card-body">
-          <ul>
-            <li><strong>Fluid Mechanics:</strong> Bernoulli's Equation, Boundary Layer Thickness, Pipe Losses</li>
-            <li><strong>Thermodynamics:</strong> 1st/2nd Laws, Entropy, Rankine & Otto Cycles</li>
-            <li><strong>Heat Transfer:</strong> Conduction, Extended Surfaces (Fins), LMTD & NTU Methods</li>
-          </ul>
-        </div>
+        <ul class="topic-list">
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Mechanism Inversions & Velocity/Acceleration Analysis</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Gears, Gear Trains (Epicyclic) & Cams</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Flywheels, Governors & Balancing of Rotors</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> SDOF Free & Forced Vibrations (Damping)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Fatigue Failure & S-N Curves (Soderberg Line)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Bearings, Gears, Brakes & Riveted/Welded Joints</li>
+        </ul>
       </div>
       <div>
-        <div class="takeaway">
-          <strong>💡 Exam Focus:</strong> High score potential in Heat Exchangers (NTU method) and Thermodynamic cycle efficiencies.
+        <div class="takeaway">💡 <strong>Focus:</strong> High weightage in Epicyclic Gear ratios and SDOF Vibration response.</div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Theory+of+Machines+IIT" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+      </div>
+    </div>
+
+    <!-- 3. Fluid Mechanics & Thermal Sciences -->
+    <div class="card" data-category="fluids">
+      <div>
+        <div class="card-header">
+          <h2>3. Fluid Mechanics & Thermal Sciences</h2>
+          <p>Fluids, Thermodynamics & Heat Transfer</p>
         </div>
-        <div class="checkbox-container">
-          <input type="checkbox" class="topic-check" onchange="updateProgress()"> Mark Section Complete
-        </div>
+        <ul class="topic-list">
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Fluid Statics, Continuity & Bernoulli Equation</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Viscous Pipe Flow & Boundary Layer Theory</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> First & Second Laws of Thermodynamics (Entropy)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Power Cycles (Rankine, Brayton, Otto, Diesel)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> 1D Heat Conduction, Extended Surfaces (Fins)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Heat Exchangers (LMTD & NTU Methods)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="takeaway">💡 <strong>Focus:</strong> Practice NTU Heat Exchangers and Steam Power Cycle efficiencies.</div>
         <a href="https://www.youtube.com/results?search_query=NPTEL+Fluid+Mechanics+SK+Som" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
       </div>
     </div>
 
-    <div class="card" data-category="manufacturing">
+    <!-- 4. Manufacturing & Industrial Engineering -->
+    <div class="card" data-category="prod">
       <div>
         <div class="card-header">
-          <h2>3. Materials, Manufacturing & Industrial</h2>
-          <p>Engineering Materials, Production Processes, Metrology & Operations Research</p>
+          <h2>4. Manufacturing & Industrial Engineering</h2>
+          <p>Production Processes, Metrology & OR</p>
         </div>
-        <div class="card-body">
-          <ul>
-            <li><strong>Manufacturing:</strong> Merchant's Force Circle, Solidification Time, CNC Programming</li>
-            <li><strong>Industrial Engg:</strong> LPP Simplex Method, EOQ Inventory Control, PERT/CPM</li>
-            <li><strong>Materials:</strong> Fe-C Phase Diagram, TTT Curves, Heat Treatment</li>
-          </ul>
-        </div>
+        <ul class="topic-list">
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Metal Casting (Chvorinov's Rule, Riser Design)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Machining (Merchant Force Circle, Taylor Tool Life)</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Welding Processes & NC/CNC Programming</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Fe-C Phase Diagram, TTT Curves & Heat Treatment</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Linear Programming (Simplex) & Transportation</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Inventory Control (EOQ Model) & PERT/CPM</li>
+        </ul>
       </div>
       <div>
-        <div class="takeaway">
-          <strong>💡 Exam Focus:</strong> Master Taylor's tool life equation, Merchant force relations, and PERT critical path calculations.
-        </div>
-        <div class="checkbox-container">
-          <input type="checkbox" class="topic-check" onchange="updateProgress()"> Mark Section Complete
-        </div>
-        <a href="https://www.youtube.com/results?search_query=NPTEL+Manufacturing+Processes+PK+Jain" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+        <div class="takeaway">💡 <strong>Focus:</strong> Taylor's tool life, Merchant's force circle, and PERT critical path.</div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Manufacturing+Processes" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
       </div>
     </div>
 
+    <!-- 5. Engineering Mathematics -->
     <div class="card" data-category="maths">
       <div>
         <div class="card-header">
-          <h2>4. Engineering Mathematics</h2>
-          <p>Linear Algebra, Calculus, Differential Equations, Probability & Numerical Methods</p>
+          <h2>5. Engineering Mathematics</h2>
+          <p>Core Applied Mathematical Methods</p>
         </div>
-        <div class="card-body">
-          <ul>
-            <li><strong>Linear Algebra:</strong> Eigenvalues, Eigenvectors, System of Linear Equations</li>
-            <li><strong>Calculus:</strong> Maxima/Minima, Gradient, Divergence, Vector Integration</li>
-            <li><strong>Probability:</strong> Poisson, Normal, and Binomial Distributions</li>
-          </ul>
-        </div>
+        <ul class="topic-list">
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Linear Algebra: Eigenvalues & Eigenvectors</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Calculus: Partial Derivatives, Maxima/Minima</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Vector Calculus: Gradient, Divergence & Curl</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Differential Equations: First & Higher Order ODEs</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Numerical Methods: Newton-Raphson & Trapezoidal Rule</li>
+          <li class="topic-item"><input type="checkbox" onchange="updateProgress()"> Probability & Statistics: Poisson & Normal Distributions</li>
+        </ul>
       </div>
       <div>
-        <div class="takeaway">
-          <strong>💡 Exam Focus:</strong> Guaranteed 13 marks—focus heavily on Matrix properties and Differential Equations.
-        </div>
-        <div class="checkbox-container">
-          <input type="checkbox" class="topic-check" onchange="updateProgress()"> Mark Section Complete
-        </div>
-        <a href="https://www.youtube.com/results?search_query=NPTEL+Engineering+Mathematics+Jitendra+Kumar" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
+        <div class="takeaway">💡 <strong>Focus:</strong> Guaranteed 13 marks—master Matrix properties and Vector Calculus.</div>
+        <a href="https://www.youtube.com/results?search_query=NPTEL+Engineering+Mathematics" target="_blank" class="btn">▶ Watch NPTEL Lectures</a>
       </div>
     </div>
 
   </main>
 
   <script>
-    // 1. GATE 2027 Countdown Timer Logic
+    // 1. Countdown Timer Logic
     function updateCountdown() {
       const examDate = new Date('February 6, 2027 09:30:00').getTime();
       const now = new Date().getTime();
@@ -342,7 +341,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Pomodoro Focus Timer Logic
+    // 2. Pomodoro Timer
     let timer;
     let timeLeft = 25 * 60;
     let isRunning = false;
@@ -364,7 +363,7 @@
             document.getElementById('pomodoro').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
           } else {
             clearInterval(timer);
-            alert("Pomodoro Sprint Finished! Take a 5-minute break.");
+            alert("Sprint Finished! Take a 5-minute break.");
             timeLeft = 25 * 60;
             isRunning = false;
             btn.innerText = "Start Sprint";
@@ -373,9 +372,9 @@
       }
     }
 
-    // 3. Dynamic Progress Tracker
+    // 3. Sub-topic Progress Tracker
     function updateProgress() {
-      const checkboxes = document.querySelectorAll('.topic-check');
+      const checkboxes = document.querySelectorAll('.topic-item input[type="checkbox"]');
       let checkedCount = 0;
       checkboxes.forEach(cb => { if (cb.checked) checkedCount++; });
       
@@ -384,18 +383,26 @@
       document.getElementById('progress-percent').innerText = percent + '% Completed';
     }
 
-    // 4. Subject Filtering Logic
-    function filterCards(category, btnElement) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      btnElement.classList.add('active');
+    // 4. Category Filter
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
+      document.querySelectorAll('.card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
+      });
+    }
+
+    // 5. Search Bar Filter
+    function filterTopics() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'flex' : 'none';
       });
     }
   </script>
